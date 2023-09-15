@@ -40,9 +40,10 @@ public class UDPServer {
                 // 接收客户端数据
                 socket.receive(receivePacket);
 
+
                 // 从数据包中获取客户端发送的数据
                 String clientMessage = new String(receivePacket.getData(), 0, receivePacket.getLength());
-                System.out.println("接收到来自客户端的消息: " + clientMessage);
+                System.out.println("接收到来自客户端" + receivePacket.getAddress().getHostAddress() + "的消息: " + clientMessage);
 
                 // 获取客户端的地址和端口号，用于回复
                 InetAddress clientAddress = receivePacket.getAddress();
